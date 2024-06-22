@@ -20,3 +20,15 @@ Esta aplicação fornece serviços RESTful para gerenciar e consultar pontos de 
 2. Navegue até o diretório do projeto:
    ```
    cd xy-inc
+
+3. Crie a DataBase em Postgres:
+   ```
+   CREATE DATABASE xy_inc;
+
+4. Compile e execute o projeto:
+   ````
+   ./mvnw spring-boot:run
+
+5. Acesse a aplicação em:
+    ```
+   http://localhost:8080
