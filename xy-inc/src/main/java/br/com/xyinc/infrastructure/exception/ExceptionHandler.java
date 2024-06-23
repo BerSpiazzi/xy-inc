@@ -4,11 +4,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.context.request.WebRequest;
 
 import br.com.xyinc.domain.model.exception.ErrorMessage;
 
@@ -47,4 +49,20 @@ public class ExceptionHandler {
         return errorResponse;
     }
 
+    @org.springframework.web.bind.annotation.ExceptionHandler(EmptyResultException.class)
+    public ResponseEntity<?> handleExceptionEmpty(WebRequest request, EmptyResultException e) {
+
+        return createResponse(request, e.getMessage(), HttpStatus.NO_CONTENT);
+    }
+
+    private ResponseEntity<?> createResponse(WebRequest request, String message, HttpStatus httpStatus) {
+
+        ErrorMessage errorResponse = new ErrorMessage();
+        errorResponse.setStatus(httpStatus.value());
+        errorResponse.setPath(request.getDescription(false));
+        errorResponse.setError(httpStatus.getReasonPhrase());
+        errorResponse.setErrors(List.of(message));
+
+        return ResponseEntity.status(httpStatus).body(errorResponse);
+    }
 }

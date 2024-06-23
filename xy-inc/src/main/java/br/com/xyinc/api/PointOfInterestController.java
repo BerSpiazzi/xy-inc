@@ -3,9 +3,11 @@ package br.com.xyinc.api;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.xyinc.application.service.PointOfInterestService;
@@ -15,8 +17,10 @@ import br.com.xyinc.domain.model.PointOfInterestResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
-@RestController("/xy-inc")
+@RestController
+@RequestMapping("/poi")
 @RequiredArgsConstructor
+@Validated
 public class PointOfInterestController {
 
     private final PointOfInterestService pointOfInterestService;
@@ -30,7 +34,7 @@ public class PointOfInterestController {
     @GetMapping
     public ResponseEntity<List<PointOfInterest>> listAllPointsOfInterest() {
 
-        return pointOfInterestService.listAllPointsOfInterest();
+        return ResponseEntity.ok(pointOfInterestService.listAllPointsOfInterest());
     }
 
     @GetMapping("/distancia")
