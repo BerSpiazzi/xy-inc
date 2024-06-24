@@ -1,5 +1,6 @@
 package br.com.xyinc.application.service;
 
+import static br.com.xyinc.utils.UtilsTest.getPois;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -113,28 +114,13 @@ class PointOfInterestServiceTest {
 
         PointOfInterestResponse response = new PointOfInterestResponse(10, 20, 10);
 
-        PointOfInterest poi = new PointOfInterest();
-        poi.setNome("POI 1");
-        poi.setCoordenadaX(15);
-        poi.setCoordenadaY(25);
-
-        PointOfInterest poi2 = new PointOfInterest();
-        poi.setNome("POI 2");
-        poi.setCoordenadaX(28);
-        poi.setCoordenadaY(2);
-
-        PointOfInterest poi3 = new PointOfInterest();
-        poi.setNome("POI 3");
-        poi.setCoordenadaX(15);
-        poi.setCoordenadaY(12);
-
-        when(pointOfInterestRepository.findAll()).thenReturn(List.of(poi, poi2, poi3));
+        when(pointOfInterestRepository.findAll()).thenReturn(getPois());
 
         List<PointOfInterest> pois = pointOfInterestService.getPOIsByProximity(response);
 
         assertNotNull(pois);
-        assertEquals(1, pois.size());
-        assertEquals("POI 3", pois.getFirst().getNome());
+        assertEquals(2, pois.size());
+        assertEquals("POI 1", pois.getFirst().getNome());
     }
 
     @Test
