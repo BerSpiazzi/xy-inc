@@ -1,6 +1,5 @@
 package br.com.xyinc.domain.model;
 
-import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
 
