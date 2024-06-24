@@ -8,7 +8,7 @@ Esta aplicação fornece serviços RESTful para gerenciar e consultar pontos de 
 
 - Java 21
 - Spring Boot
-- SqLite
+- H2 Database
 - JUnit
 
 ## Configuração
@@ -21,13 +21,14 @@ Esta aplicação fornece serviços RESTful para gerenciar e consultar pontos de 
    ```
    cd xy-inc
 
-3. Crie a DataBase em Postgres:
+3. Requirimentos:
    ```
-   CREATE DATABASE xyinc;
-
+   Maven
+   OpenJDK 21
+   
 4. Compile e execute o projeto:
    ````
-   ./mvnw spring-boot:run
+   mvn spring-boot:run
 
 5. Acesse a aplicação em:
     ```
