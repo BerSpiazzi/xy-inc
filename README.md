@@ -37,17 +37,6 @@ Esta aplicação fornece serviços RESTful para gerenciar e consultar pontos de 
 ## Endpoints
 
 ### Cadastrar POI
-
-- **Curl**
-  ````  
-    curl --location 'http://localhost:8080/xy-inc/api/poi' \
-    --header 'Content-Type: application/json' \
-    --data '{
-    "nome": "EX",
-    "coordenadaX": 15,
-    "coordenadaY": 12
-    }'
-
 - **URL**
   ```
   /xy-inc/api/poi
@@ -83,11 +72,6 @@ Esta aplicação fornece serviços RESTful para gerenciar e consultar pontos de 
     }
 
 ### Listar POIs
-
-- **Curl**
-  ```
-    curl --location 'http://localhost:8080/xy-inc/api/poi'
-  
 - **URL**
   ```
   /xy-inc/api/poi
@@ -111,11 +95,6 @@ Esta aplicação fornece serviços RESTful para gerenciar e consultar pontos de 
     StatusCode: 204 No Content
 
 ### Listar POIs por Proximidade
-
-- **Curl**
-  ```
-    curl --location 'http://localhost:8080/xy-inc/api/poi/distancia?coordenadaX=20&coordenadaY=10&distancia=10'
-
 - **URL**
   ```
   /xy-inc/api/poi/distancia
@@ -156,4 +135,9 @@ Esta aplicação fornece serviços RESTful para gerenciar e consultar pontos de 
         "path": "/xy-inc/api/poi"
     }
   
+- **Swagger**
+    ```
+    http://localhost:8080/xy-inc/api/swagger-ui-custom.html
+  
+By: Bernardo Spiazzi
 ---
