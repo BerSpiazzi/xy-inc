@@ -85,8 +85,10 @@ class PointOfInterestControllerTest {
         when(pointOfInterestService.getPOIsByProximity(response)).thenReturn(Arrays.asList(poi));
 
         mockMvc.perform(get("/poi/distancia")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content("{\"coordenadaX\": 10, \"coordenadaY\": 20, \"distancia\": 10}"))
+                        .param("coordenadaX", "10")
+                        .param("coordenadaY", "20")
+                        .param("distancia", "10")
+                        .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].nome").value("POI 1"));
     }
@@ -99,8 +101,10 @@ class PointOfInterestControllerTest {
         when(pointOfInterestService.getPOIsByProximity(response)).thenThrow(new EmptyResultException("Nenhum ponto de interesse encontrado."));
 
         mockMvc.perform(get("/poi/distancia")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content("{\"coordenadaX\": 10, \"coordenadaY\": 20, \"distancia\": 10}"))
+                        .param("coordenadaX", "10")
+                        .param("coordenadaY", "20")
+                        .param("distancia", "10")
+                        .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNoContent())
                 .andExpect(jsonPath("$.errors[0]").value("Nenhum ponto de interesse encontrado."));
     }
