@@ -134,7 +134,7 @@ Esta aplicação fornece serviços RESTful para gerenciar e consultar pontos de 
     {
         "coordenadaX": 20,
         "coordenadaY": 10,
-        "distanciaMaxima": 10
+        "distancia": 10
     }
 
 - **Resposta de Sucesso**
