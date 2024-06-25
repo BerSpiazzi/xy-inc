@@ -124,7 +124,7 @@ Esta aplicação fornece serviços RESTful para gerenciar e consultar pontos de 
 
 - **URL**
   ```
-  /xy-inc/api/poi
+  /xy-inc/api/poi/distancia
 
 - **Método**
   GET
