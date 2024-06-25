@@ -8,8 +8,5 @@ WORKDIR /app
 COPY pom.xml .
 COPY src ./src
 
-# Baixe as dependências do projeto e compile o projeto
-RUN ./mvnw clean package -DskipTests
-
 # Defina o comando para rodar a aplicação
 CMD ["java", "-jar", "target/xy-inc.jar"]
