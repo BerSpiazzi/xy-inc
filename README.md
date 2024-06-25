@@ -40,7 +40,7 @@ Esta aplicação fornece serviços RESTful para gerenciar e consultar pontos de 
 - **URL**
   ```
   /xy-inc/api/poi
-
+  
 - **Método**
   POST
 
@@ -131,7 +131,7 @@ Esta aplicação fornece serviços RESTful para gerenciar e consultar pontos de 
         "timestamp": "2021-10-10T20:00:00.000+00:00",
         "status": 400,
         "error": "Bad Request",
-        "message": "O atributo 'distanciaMaxima' é obrigatório",
+        "message": "O atributo 'distancia' é obrigatório",
         "path": "/xy-inc/api/poi"
     }
   
