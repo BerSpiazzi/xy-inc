@@ -114,13 +114,7 @@ Esta aplicação fornece serviços RESTful para gerenciar e consultar pontos de 
 
 - **Curl**
   ```
-    curl --location --request GET 'http://localhost:8080/xy-inc/api/poi/distancia' \
-    --header 'Content-Type: application/json' \
-    --data '{
-        "coordenadaX": 20,
-        "coordenadaY": 10,
-        "distancia": 1
-    }'
+    curl --location 'http://localhost:8080/xy-inc/api/poi/distancia?coordenadaX=20&coordenadaY=10&distancia=10'
 
 - **URL**
   ```
@@ -129,13 +123,11 @@ Esta aplicação fornece serviços RESTful para gerenciar e consultar pontos de 
 - **Método**
   GET
 
-- **Body**
+- **Params**
     ```
-    {
-        "coordenadaX": 20,
-        "coordenadaY": 10,
-        "distancia": 10
-    }
+    Key: coordenadaX | Value: 20,
+    Key: coordenadaY | Value: 10,
+    Key: distancia   | Value: 10,
 
 - **Resposta de Sucesso**
     ```

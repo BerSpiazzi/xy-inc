@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.xyinc.application.service.PointOfInterestService;
@@ -38,7 +39,7 @@ public class PointOfInterestController {
     }
 
     @GetMapping("/distancia")
-    public ResponseEntity<List<PointOfInterest>> getPOIsByProximity(@RequestBody @Valid PointOfInterestResponse pointResponse) {
+    public ResponseEntity<List<PointOfInterest>> getPOIsByProximity(@Valid PointOfInterestResponse pointResponse) {
 
         return ResponseEntity.ok(pointOfInterestService.getPOIsByProximity(pointResponse));
     }
