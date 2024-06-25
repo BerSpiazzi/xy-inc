@@ -1,6 +1,5 @@
 package br.com.xyinc.domain.model.exception;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -17,7 +16,10 @@ import lombok.Setter;
 public class ErrorMessage {
 
     private int status;
+
     private String error;
+
     private String path;
+
     private List<String> errors;
 }

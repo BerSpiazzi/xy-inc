@@ -38,6 +38,16 @@ Esta aplicação fornece serviços RESTful para gerenciar e consultar pontos de 
 
 ### Cadastrar POI
 
+- **Curl**
+  ````  
+    curl --location 'http://localhost:8080/xy-inc/api/poi' \
+    --header 'Content-Type: application/json' \
+    --data '{
+    "nome": "EX",
+    "coordenadaX": 15,
+    "coordenadaY": 12
+    }'
+
 - **URL**
   ```
   /xy-inc/api/poi
@@ -74,6 +84,10 @@ Esta aplicação fornece serviços RESTful para gerenciar e consultar pontos de 
 
 ### Listar POIs
 
+- **Curl**
+  ```
+    curl --location 'http://localhost:8080/xy-inc/api/poi'
+  
 - **URL**
   ```
   /xy-inc/api/poi
@@ -97,6 +111,16 @@ Esta aplicação fornece serviços RESTful para gerenciar e consultar pontos de 
     StatusCode: 204 No Content
 
 ### Listar POIs por Proximidade
+
+- **Curl**
+  ```
+    curl --location --request GET 'http://localhost:8080/xy-inc/api/poi/distancia' \
+    --header 'Content-Type: application/json' \
+    --data '{
+        "coordenadaX": 20,
+        "coordenadaY": 10,
+        "distancia": 1
+    }'
 
 - **URL**
   ```
@@ -139,3 +163,5 @@ Esta aplicação fornece serviços RESTful para gerenciar e consultar pontos de 
         "message": "O atributo 'distanciaMaxima' é obrigatório",
         "path": "/xy-inc/api/poi"
     }
+  
+---
